@@ -3,7 +3,6 @@ import "shared.proto";
 
 package server_to_proxy;
 
-
 message UpdatePlayerChunkPositions {
   repeated uint64 stream = 1;
   repeated shared.ChunkPosition positions = 2;
@@ -11,7 +10,7 @@ message UpdatePlayerChunkPositions {
 
 message BroadcastGlobal {
   bytes data = 1;
-  shared.Priority priority = 3;
+  bool optional = 2;
 }
 
 // Resulting priority is calculated by the taxicab distance multiplied by the priority
@@ -19,18 +18,18 @@ message BroadcastLocal {
   bytes data = 1;
   uint32 taxicab_radius = 2;
   shared.ChunkPosition center = 3;
-  shared.Priority priority = 4;
+  bool optional = 4;
 }
 
 message Multicast {
   bytes data = 1;
-  shared.Priority priority = 2;
+  bool optional = 2;
   repeated uint64 stream = 3;
 }
 
 message Unicast {
   bytes data = 1;
-  shared.Priority priority = 2;
+  bool optional = 2;
   uint64 stream = 3;
 }
 
