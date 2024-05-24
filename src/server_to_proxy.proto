@@ -8,6 +8,12 @@ message UpdatePlayerChunkPositions {
   repeated shared.ChunkPosition positions = 2;
 }
 
+// Mark the players as able to receive broadcasts.
+// This is used because Broadcasts should not be sent to the player before they are in the play state.
+message SetReceiveBroadcasts {
+  uint64 stream = 2;
+}
+
 message BroadcastGlobal {
   bytes data = 1;
   bool optional = 2;
