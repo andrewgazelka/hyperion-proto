@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package shared;
+
+message ChunkPosition {
+  int32 x = 1;
+  int32 z = 2;
+}
+
+// If priority is set to 0, it is required
+// Then everything is sent in order of 1..
+message Priority {
+  uint32 priority = 1;
+}
