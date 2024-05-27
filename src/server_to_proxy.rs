@@ -30,4 +30,12 @@ impl From<Unicast> for ServerToProxyMessage {
     }
 }
 
+impl<T: Into<ServerToProxyMessage>> From<T> for ServerToProxy {
+    fn from(message: T) -> Self {
+        Self {
+            server_to_proxy_message: Some(message.into()),
+        }
+    }
+}
+
 pub use server_to_proxy::ServerToProxyMessage;
