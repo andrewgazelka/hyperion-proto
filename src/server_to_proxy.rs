@@ -30,6 +30,12 @@ impl From<Unicast> for ServerToProxyMessage {
     }
 }
 
+impl From<SetReceiveBroadcasts> for ServerToProxyMessage {
+    fn from(message: SetReceiveBroadcasts) -> Self {
+        Self::SetReceiveBroadcasts(message)
+    }
+}
+
 impl<T: Into<ServerToProxyMessage>> From<T> for ServerToProxy {
     fn from(message: T) -> Self {
         Self {
