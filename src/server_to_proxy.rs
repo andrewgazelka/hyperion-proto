@@ -45,3 +45,5 @@ impl<T: Into<ServerToProxyMessage>> From<T> for ServerToProxy {
 }
 
 pub use server_to_proxy::ServerToProxyMessage;
+
+impl Copy for SetReceiveBroadcasts {}
