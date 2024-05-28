@@ -46,5 +46,6 @@ message ServerToProxy {
     BroadcastLocal broadcast_local = 3;
     Multicast multicast = 4;
     Unicast unicast = 5;
+    SetReceiveBroadcasts set_receive_broadcasts = 6;
   }
 }
