@@ -41,7 +41,7 @@ message Unicast {
 
 message ServerToProxy {
   oneof server_to_proxy_message {
-    UpdatePlayerChunkPositions update_player_chunk_positions = 1;
+    UpdatePlayerChunkPositions update_player_chunk_positions = 9;
     BroadcastGlobal broadcast_global = 2;
     BroadcastLocal broadcast_local = 3;
     Multicast multicast = 4;
