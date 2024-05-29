@@ -37,6 +37,7 @@ message Multicast {
 message Unicast {
   bytes data = 1;
   uint64 stream = 2;
+  uint64 order = 3;
 }
 
 message ServerToProxy {
