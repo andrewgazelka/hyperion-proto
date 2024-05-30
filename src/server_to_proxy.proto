@@ -40,6 +40,10 @@ message Unicast {
   uint64 order = 3;
 }
 
+// Flush all the queued messages. No messages will be sent over TCP to the players until flush is called. Flushing is
+// important so we can combine messages into a single contiguous area in memory before sending them over TCP. This will reduce system calls.
+message Flush {}
+
 message ServerToProxy {
   oneof server_to_proxy_message {
     UpdatePlayerChunkPositions update_player_chunk_positions = 1;
@@ -48,5 +52,6 @@ message ServerToProxy {
     Multicast multicast = 4;
     Unicast unicast = 5;
     SetReceiveBroadcasts set_receive_broadcasts = 6;
+    Flush flush = 7;
   }
 }
