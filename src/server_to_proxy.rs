@@ -36,6 +36,12 @@ impl From<SetReceiveBroadcasts> for ServerToProxyMessage {
     }
 }
 
+impl From<Flush> for ServerToProxyMessage {
+    fn from(message: Flush) -> Self {
+        Self::Flush(message)
+    }
+}
+
 impl<T: Into<ServerToProxyMessage>> From<T> for ServerToProxy {
     fn from(message: T) -> Self {
         Self {
@@ -47,3 +53,4 @@ impl<T: Into<ServerToProxyMessage>> From<T> for ServerToProxy {
 pub use server_to_proxy::ServerToProxyMessage;
 
 impl Copy for SetReceiveBroadcasts {}
+impl Copy for Flush {}
