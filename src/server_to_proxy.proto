@@ -17,7 +17,7 @@ message SetReceiveBroadcasts {
 message BroadcastGlobal {
   bytes data = 1;
   bool optional = 2;
-  repeated uint64 exclude = 3;
+  uint64 exclude = 3;
 }
 
 // Resulting priority is calculated by the taxicab distance multiplied by the priority
@@ -26,7 +26,7 @@ message BroadcastLocal {
   uint32 taxicab_radius = 2;
   shared.ChunkPosition center = 3;
   bool optional = 4;
-  repeated uint64 exclude = 5;
+  uint64 exclude = 5;
 }
 
 message Multicast {
